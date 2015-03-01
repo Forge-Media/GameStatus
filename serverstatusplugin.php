@@ -71,7 +71,7 @@ function SetStatus($status) {
 
 function SetButton($status, $ip, $port) {
 	if ($status == 'Online') {
-			$output = '<td><a class="fgn-button nectar-button small accent-color regular-button" href="steam://connect/'.$row['ip'].':'.$row['port'].'" data-color-override="false" data-hover-color-override="false" data-hover-text-color-override="#fff" style="visibility: visible;"><span>CONNECT</span></a></td>';
+			$output = '<td><a class="fgn-button nectar-button small accent-color regular-button" href="steam://connect/'.$ip.':'.$port.'" data-color-override="false" data-hover-color-override="false" data-hover-text-color-override="#fff" style="visibility: visible;"><span>CONNECT</span></a></td>';
 		} else {
 			$output = '<td><a class="fgn-button nectar-button small extra-color-3 regular-button" href="#" data-color-override="false" data-hover-color-override="false" data-hover-text-color-override="#fff" style="visibility: visible;"><span>MAYBE LATER</span></a></td>';
 		}
