@@ -36,10 +36,12 @@ Requirments
 Add a server to check
 --------------
 - Open the serverlist.txt
-- Add server as new line, **follow styling!**
-| GAME CODE | SERVER NAME | IP | PORT |
-| :-------------: | :-------------: | :-------------: | :-------------: |
-| MC | Minecraft | 192.168.1.1 | 25565 |
+- Add server as new line **follow styling!**
+
+| GAME CODE | SERVER NAME | IP          | Port   |
+|:---------:|:-----------:|:-----------:|:------:|
+| MC        | Minecraft   | 192.168.1.1 | 25565  |
+
 - GAME CODE: Used in shortcode must be identical!
 
 Installation
