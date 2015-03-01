@@ -1,0 +1,3 @@
+[submodule "library/source"]
+	path = library/source
+	url = https://github.com/xPaw/PHP-Source-Query-Class
