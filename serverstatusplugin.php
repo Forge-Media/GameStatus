@@ -19,7 +19,7 @@ if (file_exists($file)) {
 function GetServers($atts) {
 	global $servers_array;
 
-	// Attributes (Only works in Wordpress)
+	// Attributes
 	extract( shortcode_atts(
 		array(
 			'game' => 'all',
@@ -41,7 +41,7 @@ function DisplayServers($array, $gamename) {
 	        echo '<td>' . $row['ip'] . '</td>';
 	        echo '<td>' . $row['port'] . '</td>';
 	       	echo SetStatus($row['status']);
-	        echo '<td><a class="fgn-button nectar-button small accent-color regular-button" href="steam://connect/'.$row['ip'].':'.$row['port'].'" data-color-override="false" data-hover-color-override="false" data-hover-text-color-override="#fff" style="visibility: visible;"><span>CONNECT</span></a></td>';
+	        echo SetButton($row['status'],$row['ip'],$row['port']);
 	        echo '</tr>';
     	}	
 	} else {
@@ -52,7 +52,7 @@ function DisplayServers($array, $gamename) {
 		        echo '<td>' . $row['ip'] . '</td>';
 		        echo '<td>' . $row['port'] . '</td>';
 		        echo SetStatus($row['status']);
-				echo '<td><a class="fgn-button nectar-button small accent-color regular-button" href="steam://connect/'.$row['ip'].':'.$row['port'].'" data-color-override="false" data-hover-color-override="false" data-hover-text-color-override="#fff" style="visibility: visible;"><span>CONNECT</span></a></td>';
+		        echo SetButton($row['status'],$row['ip'],$row['port']);
 		        echo '</tr>';	
 			}
     	}	
@@ -69,6 +69,14 @@ function SetStatus($status) {
 	return $output;
 }
 
+function SetButton($status, $ip, $port) {
+	if ($status == 'Online') {
+			$output = '<td><a class="fgn-button nectar-button small accent-color regular-button" href="steam://connect/'.$row['ip'].':'.$row['port'].'" data-color-override="false" data-hover-color-override="false" data-hover-text-color-override="#fff" style="visibility: visible;"><span>CONNECT</span></a></td>';
+		} else {
+			$output = '<td><a class="fgn-button nectar-button small extra-color-3 regular-button" href="#" data-color-override="false" data-hover-color-override="false" data-hover-text-color-override="#fff" style="visibility: visible;"><span>MAYBE LATER</span></a></td>';
+		}
+		return $output;
+}
 /*
 	include(WP_CONTENT_DIR . '/scripts/tsinfo.php');
 	add_shortcode( 'GetOnlineClients_sc', 'GetOnlineClients' );
