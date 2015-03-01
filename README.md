@@ -4,7 +4,7 @@
 
 Copyright (c) Forge Gaming Network 2015
 
-GameStatus v2, is a simple but effect script which you can use to display the status of a multiple game servers. The script simply needs to be called at intervals you can set.
+GameStatus v2, is a simple but effective script which you can use to display the status of a multiple game servers. The script simply needs to be called at intervals you can set.
 
 What is GameStatus v2
 -----------------
