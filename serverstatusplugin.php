@@ -14,12 +14,12 @@ if (file_exists($file)) {
 
 //Use for debugging
 //GetAllServers();
-//GetServers('csgo');
+//GetServers('CSGO');
 
 function GetServers($atts) {
 	global $servers_array;
 
-	// Attributes
+	// Attributes 
 	extract( shortcode_atts(
 		array(
 			'game' => 'all',
@@ -33,26 +33,37 @@ function GetServers($atts) {
 
 function DisplayServers($array, $gamename) {
 	echo '<table class="status-table">';
-	echo '<tr><th>Server Name</th><th>IP</th><th>Port</th><th>Status</th><th>Connect</th></tr>';
 	if ($gamename == 'all') {
+		echo '<tr><th>Server Name</th><th>IP</th><th>Port</th><th>Map</th><th>Players</th><th>Version</th><th>Status</th><th>Connect</th></tr>';
 		foreach ($array as $row) { 
 			echo '<tr>';
 	        echo '<td>' . $row['name'] . '</td>';
 	        echo '<td>' . $row['ip'] . '</td>';
 	        echo '<td>' . $row['port'] . '</td>';
+	        echo '<td>' . $row['map'] . '</td>';
+	        echo '<td>' . $row['players'] . '</td>';
+	        echo '<td>' . $row['version'] . '</td>';
 	       	echo SetStatus($row['status']);
 	        echo SetButton($row['status'],$row['ip'],$row['port']);
 	        echo '</tr>';
     	}	
 	} else {
+		if ($gamename == 'MC') {
+			echo '<tr><th>Server Name</th><th>IP</th><th>Port</th><th>Status</th><th>Connect</th></tr>';
+		} else {
+			echo '<tr><th>Server Name</th><th>IP</th><th>Port</th><th>Map</th><th>Players</th><th>Version</th><th>Status</th><th>Connect</th></tr>';	
+		}
 		foreach ($array as $row) {
 			if ($row['game'] == $gamename) {
 				echo '<tr>';
 		        echo '<td>' . $row['name'] . '</td>';
 		        echo '<td>' . $row['ip'] . '</td>';
 		        echo '<td>' . $row['port'] . '</td>';
+		        echo '<td>' . $row['map'] . '</td>';
+	        	echo '<td>' . $row['players'] . '</td>';
+	         	echo '<td>' . $row['version'] . '</td>';
 		        echo SetStatus($row['status']);
-		        echo SetButton($row['status'],$row['ip'],$row['port']);
+		        echo SetButton($row['status'], $row['ip'], $row['port']);
 		        echo '</tr>';	
 			}
     	}	
@@ -77,11 +88,5 @@ function SetButton($status, $ip, $port) {
 		}
 		return $output;
 }
-/*
-	include(WP_CONTENT_DIR . '/scripts/tsinfo.php');
-	add_shortcode( 'GetOnlineClients_sc', 'GetOnlineClients' );
-	add_shortcode( 'GetOnlineChannels_sc', 'GetOnlineChannels' );
-	add_shortcode( 'GetPing_sc', 'GetPing' );
-	add_shortcode( 'GetUptime_sc', 'GetUptime' );
-*/
+
 ?>
